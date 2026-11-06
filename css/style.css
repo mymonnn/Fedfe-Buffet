@@ -1,0 +1,91 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: #202939; font: 16px/1.6 Tahoma, Arial, sans-serif; }
+a { color: #175cd3; text-underline-offset: 3px; }
+a:hover { color: #1849a9; }
+button, input, select, textarea { font: inherit; }
+button, .button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .45; }
+input, select, textarea { max-width: 100%; border: 1px solid #cdd5df; border-radius: 7px; background: #fff; color: #202939; padding: 9px 11px; }
+input:not([type="hidden"]):focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #b2ccff; outline-offset: 2px; }
+input[type="number"] { width: 100px; }
+input[type="checkbox"] { width: auto; }
+textarea { width: 100%; resize: vertical; }
+input::placeholder, textarea::placeholder { color: #8b95a5; opacity: 1; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 9px; font-size: 1.7rem; line-height: 1.4; }
+h2 { font-size: 1.2rem; line-height: 1.5; margin-bottom: 14px; }
+h3 { font-size: 1rem; line-height: 1.5; margin-bottom: 8px; }
+p { margin-bottom: 13px; }
+small, .small-text { font-size: .82rem; }
+[hidden] { display: none !important; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 24px 16px 40px; }
+.site-header { background: #fff; border-bottom: 1px solid #e4e7ec; padding: 16px 20px; }
+.site-header .container { padding: 0; }
+.brand { display: inline-block; color: #175cd3; font-size: 1.25rem; font-weight: bold; text-decoration: none; }
+.staff-identity { color: #667085; font-size: .82rem; margin: 5px 0 10px; }
+nav ul { list-style: none; margin: 0; padding: 0; }
+nav li { display: inline-block; margin: 5px 15px 5px 0; }
+nav a { text-decoration: none; }
+nav a[aria-current="page"] { color: #175cd3; font-weight: bold; }
+nav form { display: inline-block; }
+.site-footer { border-top: 1px solid #e4e7ec; color: #667085; padding: 20px; text-align: center; font-size: .8rem; }
+.site-footer p { margin: 0; }
+.page-heading { margin-bottom: 22px; }
+.page-heading p { margin-bottom: 6px; }
+.panel { padding: 20px; border: 1px solid #e4e7ec; border-radius: 10px; background: #fff; margin-bottom: 22px; }
+.muted { color: #667085; }
+.text-danger { color: #b42318; }
+.text-right { text-align: right; }
+.button, button { display: inline-block; padding: 9px 16px; border: 1px solid #175cd3; border-radius: 7px; background: #175cd3; color: #fff; font-weight: bold; text-align: center; text-decoration: none; line-height: 1.5; }
+.button:hover, button:hover { background: #1849a9; color: #fff; }
+.button-secondary, .button.secondary { background: #fff; color: #344054; border-color: #cdd5df; }
+.button-secondary:hover, .button.secondary:hover { background: #f2f4f7; color: #202939; }
+.button-danger, .button.danger { background: #fff; border-color: #f1b4ad; color: #b42318; }
+.button-danger:hover, .button.danger:hover { background: #fef3f2; color: #912018; }
+.button.small, button.small, .button-small { font-size: .8rem; padding: 6px 10px; }
+.notice { border: 1px solid #d0d5dd; border-radius: 7px; background: #f8fafc; color: #475467; padding: 12px 14px; margin-bottom: 16px; }
+.notice.success { background: #eff6ff; border-color: #b2ccff; color: #1849a9; }
+.notice.error { background: #fef3f2; border-color: #f1b4ad; color: #b42318; }
+.notice.warning { background: #f8fafc; border-color: #d0d5dd; color: #475467; }
+.badge, .status { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: .76rem; font-weight: bold; white-space: nowrap; }
+.badge-success, .status.served, .status.SERVED, .status.open { background: #eff6ff; color: #175cd3; }
+.badge-warning, .status.preparing, .status.PREPARING { background: #f2f4f7; color: #475467; }
+.badge-muted, .status.closed, .status.cancelled, .status.CANCELLED { background: #f2f4f7; color: #667085; }
+.inline-form { display: inline-block; vertical-align: middle; margin: 0 5px 7px 0; }
+.inline-form label { display: inline-block; margin-right: 6px; }
+.inline-form input, .inline-form select { vertical-align: middle; }
+.form-row { margin-bottom: 15px; }
+.field { margin-bottom: 16px; }
+.field input, .field select { width: 100%; }
+.field small { display: block; margin-top: 4px; color: #667085; }
+.table-wrap { width: 100%; overflow-x: auto; margin-bottom: 15px; }
+table { width: 100%; border-collapse: collapse; background: #fff; text-align: left; }
+th, td { border-bottom: 1px solid #e4e7ec; padding: 12px 10px; vertical-align: top; }
+th { color: #475467; background: #f8fafc; font-size: .82rem; white-space: nowrap; }
+td p:last-child { margin-bottom: 0; }
+tbody tr:hover { background: #fafcff; }
+caption { text-align: left; font-weight: bold; padding-bottom: 12px; }
+.empty-state { padding: 35px 18px; color: #667085; text-align: center; border: 1px dashed #d0d5dd; border-radius: 8px; }
+.empty-state > .icon { width: 34px; height: 34px; margin-bottom: 12px; color: #98a2b3; }
+.total-row { font-size: 1.08rem; font-weight: bold; background: #f8fafc; }
+.login-panel { width: 100%; max-width: 440px; margin: 35px auto; }
+.login-panel input { width: 100%; margin-bottom: 16px; }
+.login-panel button[type="submit"] { width: 100%; margin-top: 8px; }
+.icon { display: inline-block; vertical-align: -.18em; width: 20px; height: 20px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+details > summary { cursor: pointer; font-weight: bold; }
+details[open] > summary { margin-bottom: 15px; }
+.management-form > summary { list-style: none; }
+.management-form > summary::-webkit-details-marker { display: none; }
+.management-form > summary .icon { margin-right: 5px; color: #175cd3; }
+@media (min-width: 768px) {
+    .container { padding: 28px 26px 48px; }
+    h1 { font-size: 1.9rem; }
+    .panel { padding: 24px; }
+    .form-row > .field { display: inline-block; width: 47%; margin-right: 2%; vertical-align: top; }
+}
+@media (min-width: 1024px) {
+    .site-header { padding-right: max(26px, calc((100vw - 1148px) / 2)); padding-left: max(26px, calc((100vw - 1148px) / 2)); }
+}

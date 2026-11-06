@@ -1,0 +1,94 @@
+---
+title: Fedfe Buffet Project Database Architecture
+config:
+  layout: dagre
+---
+erDiagram
+	direction TB
+	
+	TABLE {
+		int id  "Primary Key"  
+		int number  "หมายเลขโต๊ะ"  
+		boolean is_available  "TRUE = โต๊ะเปิดรับออร์เดอร์, FALSE = ปิดโต๊ะ"
+	}
+    SESSION {
+		int id "Primary Key"
+		string session_number "หมายเลขรอบการใช้บริการของแต่ละโต๊ะ"
+		int table_id "Foreign Key | หมายเลขโต๊ะ"
+        int people_amount "จำนวนลูกค้าที่ใช้บริการในรอบนั้น"
+        decimal buffet_price "ราคาคอร์สบุฟเฟ่ต์"
+        datetime created_at "เวลาที่รอบการใช้งานถูกสร้าง"
+        datetime completed_at "เวลาที่รอบการใช้งานเสร็จสิ้น"
+        boolean need_help "การแจ้งเตือนเรียกพนักงาน"  
+        boolean request_bill "การแจ้งเตือนเช็คบิล"
+        decimal total_price "ยอดรวมของบิลของแต่ละโต๊ะ"
+	}
+    SESSION_MEMBER {
+        int id "Primary Key"
+        int session_id "Foreign Key | เซสชั่นของโต๊ะที่ถูกใช้บริการ"
+        int member_id "Foreign Key | สมาชิกที่ใช้บริการในเซสชั่นนั้น"
+    }
+	ORDER {
+		int id  "Primary Key"  
+		string number  "หมายเลขออร์เดอร์"  
+		int session_id  "Foreign Key | เซสชั่นของโต๊ะที่ทำการสร้างออร์เดอร์"
+        datetime created_at "เวลาที่ออร์เดอร์ถูกสร้าง"
+        datetime completed_at "เวลาที่ออร์เดอร์ถูกเสิร์ฟหรือถูกยกเลิก"   
+		string status  "สถานะออร์เดอร์" 
+	}
+    ITEM {
+        int id "Primary Key"
+        int order_id "Foreign Key | หมายเลขออร์เดอร์"
+        int food_id "Foreign Key | รายการอาหารที่ถูกสั่ง"
+        int quantity "จำนวนรายการอาหาร"
+        string note "หมายเหตุที่ลูกค้าเขียน"
+        decimal price "ยอดเงินรวมของรายการ ณ เวลาสั่ง ไม่ใช่ราคาต่อหน่วย"
+    }
+	MENU {
+		int id  "Primary Key"  
+		string name  "ชื่ออาหาร"  
+		string category  "หมวดหมู่อาหาร"
+        text description "คำอธิบายอาหาร (เว้นว่างได้)"  
+		decimal price  "ราคาอาหาร"  
+		string image_path  "ที่อยู่ของรูปภาพอาหาร"  
+		boolean is_available  "อาหารสามารถกดสั่งได้หรือไม่" 
+        boolean is_deleted "อาหารถูกลบใช่หรือไม่" 
+	}
+    EMPLOYEE {
+		int id  "Primary Key"  
+		date registration_date "วันที่สร้างบัญชี"
+		string username  "ชื่อผู้ใช้"  
+		string password_hash  "แฮชรหัสผ่าน"  
+		string first_name  "ชื่อจริง"  
+		string last_name  "นามสกุล"  
+		string email  "อีเมล"  
+		string telephone_number  "หมายเลขโทรศัพท์"  
+		string address  "ที่อยู่อาศัย"  
+		string national_id  "หมายเลขบัตรประชาชน"  
+		string position  "ตำแหน่งการทำงาน"  
+		string system_role  "สถานะในระบบ (STAFF | MANAGER)"
+		date hire_date  "วันที่เริ่มจ้างงาน"  
+		boolean is_deactivated  "บัญชีถูกปิดการใช้งานใช่หรือไม่"  
+	}
+	MEMBER {
+		int id  "Primary Key"  
+		date registration_date  "วันที่สมัครสมาชิก"  
+		string username  "ชื่อผู้ใช้"  
+		string password_hash  "แฮชรหัสผ่าน"  
+		string first_name  "ชื่อจริง"  
+		string last_name  "นามสกุล"  
+		string email  "อีเมล"  
+		string telephone_number  "หมายเลขโทรศัพท์"  
+		date birth_date  "วันเกิด"  
+		string gender  "เพศ"  
+		int points  "คะแนนสะสม"  
+		date birthday_promotion_used_at  "สิทธิ์โปรโมชั่นวันเกิดถูกใช้เมื่อไหร่"  
+		boolean is_deactivated  "บัญชีถูกปิดการใช้งานใช่หรือไม่"  
+	}
+
+    TABLE   ||--o{ SESSION        : "hosts"
+    SESSION ||--o{ ORDER          : "contains"
+    ORDER   ||--|{ ITEM           : "contains"
+    MENU    ||--o{ ITEM           : "appears in"
+    SESSION ||--o{ SESSION_MEMBER : "has"
+    MEMBER  ||--o{ SESSION_MEMBER : "attends"
