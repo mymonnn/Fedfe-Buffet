@@ -67,6 +67,13 @@ unset($_SESSION['flash']);
                     <td class="text-right"><?= h($visit['people_amount']) ?> คน</td>
                     <td class="text-right"><?= h(money(cents_decimal($bill['buffet_cents']))) ?></td>
                 </tr>
+                <?php if ($bill['discount_cents'] > 0): ?>
+                    <tr class="discount-row">
+                        <td>มา 6 คน ฟรี 1 คน</td>
+                        <td class="text-right">1 คน</td>
+                        <td class="text-right">-<?= h(money(cents_decimal($bill['discount_cents']))) ?></td>
+                    </tr>
+                <?php endif; ?>
                 <?php for ($i = 0; $i < count($bill['lines']); $i++): ?>
                     <?php $line = $bill['lines'][$i]; ?>
                     <tr>

@@ -5,7 +5,7 @@
 function render_table_card(array $table): void {
 $table_version = hash('sha256', implode('|', [
     $table['table_number'], $table['table_open'], $table['visit_id'] ?? '',
-    $table['people_amount'] ?? '', $table['created_at'] ?? '',
+    $table['people_amount'] ?? '', $table['free_guests'] ?? 0, $table['created_at'] ?? '',
     $table['need_help'] ?? '', $table['request_bill'] ?? ''
 ]));
 ?>
@@ -14,6 +14,9 @@ $table_version = hash('sha256', implode('|', [
     <p class="notice" role="status" data-table-message hidden></p>
     <?php if ($table['visit_id']): ?>
         <p><span class="status open">กำลังให้บริการ</span> <strong><?= h($table['people_amount']) ?> คน</strong></p>
+        <?php if ((int) ($table['free_guests'] ?? 0) === 1): ?>
+            <p class="promotion-status">มา 6 คน ฟรี 1 คน · รับสิทธิ์แล้ว</p>
+        <?php endif; ?>
         <p class="muted">เปิดเมื่อ <?= h(date('H:i', strtotime($table['created_at']))) ?></p>
         <?php if ($table['request_bill']): ?>
             <p class="notice warning">ขอเช็คบิลแล้ว · ระงับการสั่งเพิ่ม</p>
@@ -29,6 +32,7 @@ $table_version = hash('sha256', implode('|', [
                     <label for="guests-<?= h($table['table_number']) ?>">จำนวนลูกค้า</label>
                     <input id="guests-<?= h($table['table_number']) ?>" type="number" name="people_amount" min="1" max="99" value="<?= h($table['people_amount']) ?>" required>
                 </div>
+                <p class="promotion-hint">มา 6 คน ฟรี 1 คน สูงสุด 1 คนต่อรอบบริการ</p>
                 <button type="submit" class="button secondary small">บันทึกจำนวน</button>
             </form>
         </details>
@@ -54,6 +58,7 @@ $table_version = hash('sha256', implode('|', [
         <p><a href="<?= h(BASE_URL) ?>/?table=<?= h($table['table_number']) ?>" target="_blank" rel="noopener">เปิดหน้าลูกค้าของโต๊ะนี้</a></p>
     <?php else: ?>
         <p><span class="status closed">ปิดอยู่</span></p>
+        <p class="promotion-hint">มา 6 คน ฟรี 1 คน สูงสุด 1 คนต่อรอบบริการ</p>
         <form action="<?= h(BASE_URL) ?>/actions/table.php" method="post" class="open-table-form" data-table-action>
             <?php csrf_field(); ?>
             <input type="hidden" name="action" value="open">

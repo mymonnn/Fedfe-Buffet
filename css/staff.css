@@ -3,6 +3,8 @@
 .table-card.is-open { border-top-color: #528bff; }
 .table-card h2, .table-card h3 { display: inline-block; margin-right: 8px; }
 .table-card p { font-size: .86rem; margin-bottom: 10px; }
+.table-card .promotion-hint { color: #667085; font-size: .76rem; }
+.table-card .promotion-status { color: #175cd3; font-size: .78rem; }
 .table-card input[type="number"] { width: 120px; }
 .table-card .button { max-width: 100%; margin-bottom: 4px; white-space: normal; }
 .table-card .inline-form { display: block; }
@@ -30,6 +32,7 @@
 .table-refresh { font-size: .85rem; }
 .summary-table { max-width: 750px; margin: 15px 0 22px; }
 .summary-table th { white-space: normal; }
+.discount-row { color: #175cd3; }
 .bill-total { font-size: 1.45rem; font-weight: bold; color: #175cd3; }
 .table-wrap td .inline-form { white-space: nowrap; }
 .table-wrap td .button { margin-bottom: 4px; }

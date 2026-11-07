@@ -123,6 +123,18 @@
                     <?php if ($editing['id']): ?><a class="button secondary" href="<?= h(BASE_URL) ?>/staff/menu.php">ยกเลิกการแก้ไข</a><?php endif; ?>
                 </form>
             </details>
+            <details class="panel management-form" id="menu-import" <?= isset($_GET['import']) ? 'open' : '' ?>>
+                <summary><?= icon('menu') ?> นำเข้าเมนู JSON</summary>
+                <form action="../actions/import-menu.php" method="post" enctype="multipart/form-data" data-submit-once>
+                    <?php csrf_field(); ?>
+                    <div class="field">
+                        <label for="menu-file">ไฟล์เมนู JSON</label>
+                        <input id="menu-file" type="file" name="menu_file" accept=".json,application/json" aria-describedby="menu-file-help" required>
+                        <p id="menu-file-help" class="small-text muted">ไฟล์ขนาดไม่เกิน 1 MB รหัสอาหารต้องไม่ซ้ำกับรายการที่มีอยู่</p>
+                    </div>
+                    <button type="submit" class="button">นำเข้าเมนู</button>
+                </form>
+            </details>
         <?php endif; ?>
 
         <section class="panel" id="menu-list" aria-labelledby="menu-list-heading">

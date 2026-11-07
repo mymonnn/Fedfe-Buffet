@@ -1,0 +1,303 @@
+[
+  {
+    "id": 1,
+    "name": "เนื้อสไลซ์",
+    "category": "เนื้อ",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 2,
+    "name": "เนื้อริบอาย",
+    "category": "เนื้อ",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 3,
+    "name": "เนื้อวากิว",
+    "category": "เนื้อ",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 4,
+    "name": "หมูสไลซ์",
+    "category": "หมู",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 5,
+    "name": "หมูสามชั้น",
+    "category": "หมู",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 6,
+    "name": "คอหมูย่าง",
+    "category": "หมู",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 7,
+    "name": "หมูเกาหลี",
+    "category": "หมู",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 8,
+    "name": "ลูกชิ้นหมู",
+    "category": "หมู",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 9,
+    "name": "ไก่สไลซ์",
+    "category": "ไก่",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 10,
+    "name": "ปีกไก่",
+    "category": "ไก่",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 11,
+    "name": "ลูกชิ้นไก่",
+    "category": "ไก่",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 12,
+    "name": "กุ้ง",
+    "category": "ทะเล",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 13,
+    "name": "ปลาหมึก",
+    "category": "ทะเล",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 14,
+    "name": "หอยแมลงภู่",
+    "category": "ทะเล",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 15,
+    "name": "ปลาแซลมอน",
+    "category": "ทะเล",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 16,
+    "name": "ลูกชิ้นปลา",
+    "category": "ทะเล",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 17,
+    "name": "ผักกาดขาว",
+    "category": "ผักและเห็ด",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 18,
+    "name": "ผักบุ้ง",
+    "category": "ผักและเห็ด",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 19,
+    "name": "ข้าวโพด",
+    "category": "ผักและเห็ด",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 20,
+    "name": "เห็ดเข็มทอง",
+    "category": "ผักและเห็ด",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 21,
+    "name": "เห็ดหอม",
+    "category": "ผักและเห็ด",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 22,
+    "name": "เห็ดนางฟ้า",
+    "category": "ผักและเห็ด",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 23,
+    "name": "บะหมี่",
+    "category": "เส้นและข้าว",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 24,
+    "name": "วุ้นเส้น",
+    "category": "เส้นและข้าว",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 25,
+    "name": "มาม่า",
+    "category": "เส้นและข้าว",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 26,
+    "name": "ข้าวสวย",
+    "category": "เส้นและข้าว",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 27,
+    "name": "น้ำซุปธรรมดา",
+    "category": "น้ำซุปและน้ำจิ้ม",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 28,
+    "name": "น้ำซุปต้มยำ",
+    "category": "น้ำซุปและน้ำจิ้ม",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 29,
+    "name": "น้ำจิ้มสุกี้",
+    "category": "น้ำซุปและน้ำจิ้ม",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 30,
+    "name": "น้ำจิ้มแจ่ว",
+    "category": "น้ำซุปและน้ำจิ้ม",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 31,
+    "name": "ผลไม้ตามฤดูกาล",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 32,
+    "name": "เฉาก๊วย",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 33,
+    "name": "วุ้นมะพร้าว",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 34,
+    "name": "ไอศกรีมวานิลลา",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 20.00
+  },
+  {
+    "id": 35,
+    "name": "ไอศกรีมช็อกโกแลต",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 20.00
+  },
+  {
+    "id": 36,
+    "name": "ไอศกรีมสตรอว์เบอร์รี",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 20.00
+  },
+  {
+    "id": 37,
+    "name": "ไอศกรีมชาเขียว",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 25.00
+  },
+  {
+    "id": 38,
+    "name": "บิงซูผลไม้รวม",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 89.00
+  },
+  {
+    "id": 39,
+    "name": "โมจิไอศกรีม (3 ชิ้น)",
+    "category": "ของหวาน",
+    "description": "",
+    "price": 45.00
+  },
+  {
+    "id": 40,
+    "name": "น้ำเปล่า",
+    "category": "เครื่องดื่ม",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 41,
+    "name": "น้ำอัดลม",
+    "category": "เครื่องดื่ม",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 42,
+    "name": "ชาไทย",
+    "category": "เครื่องดื่ม",
+    "description": "",
+    "price": 0.00
+  },
+  {
+    "id": 43,
+    "name": "น้ำผลไม้",
+    "category": "เครื่องดื่ม",
+    "description": "",
+    "price": 0.00
+  }
+]

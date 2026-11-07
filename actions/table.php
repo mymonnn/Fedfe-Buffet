@@ -24,8 +24,9 @@ try {
         $statement = $pdo->prepare('SELECT COUNT(*) FROM `SESSION` WHERE table_id = ?');
         $statement->execute([$table['id']]);
         $number = 'T' . $tableNumber . '-' . ((int) $statement->fetchColumn() + 1);
-        $statement = $pdo->prepare('INSERT INTO `SESSION` (session_number, table_id, people_amount, buffet_price, created_at) VALUES (?, ?, ?, 299.00, NOW())');
-        $statement->execute([$number, $table['id'], $people]);
+        $free_guests = $people >= 6 ? 1 : 0;
+        $statement = $pdo->prepare('INSERT INTO `SESSION` (session_number, table_id, people_amount, free_guests, buffet_price, created_at) VALUES (?, ?, ?, ?, 299.00, NOW())');
+        $statement->execute([$number, $table['id'], $people, $free_guests]);
         $statement = $pdo->prepare('UPDATE `TABLE` SET is_available = 1 WHERE id = ?');
         $statement->execute([$table['id']]);
         $message = 'เปิดโต๊ะ ' . $tableNumber . ' แล้ว';
@@ -34,8 +35,9 @@ try {
         $visit = lock_visit($pdo, $tableNumber, $visitId);
         if ($action === 'guests') {
             $people = post_integer('people_amount', 1, 99);
-            $statement = $pdo->prepare('UPDATE `SESSION` SET people_amount = ? WHERE id = ?');
-            $statement->execute([$people, $visitId]);
+            $free_guests = $people >= 6 ? 1 : 0;
+            $statement = $pdo->prepare('UPDATE `SESSION` SET people_amount = ?, free_guests = ? WHERE id = ?');
+            $statement->execute([$people, $free_guests, $visitId]);
             $message = 'แก้ไขจำนวนลูกค้าแล้ว';
         } elseif ($action === 'ack') {
             $statement = $pdo->prepare('UPDATE `SESSION` SET need_help = 0 WHERE id = ?');

@@ -7,7 +7,7 @@ $employee = require_employee($pdo, true);
 header('Cache-Control: no-store');
 $view = $_GET['view'] ?? 'orders';
 if ($view === 'tables') {
-    $statement = $pdo->query('SELECT t.number AS table_number, t.is_available AS table_open, s.id AS visit_id, s.session_number, s.people_amount, s.created_at, s.need_help, s.request_bill FROM `TABLE` t LEFT JOIN `SESSION` s ON s.table_id = t.id AND s.completed_at IS NULL WHERE t.number BETWEEN 1 AND 9 ORDER BY t.number');
+    $statement = $pdo->query('SELECT t.number AS table_number, t.is_available AS table_open, s.id AS visit_id, s.session_number, s.people_amount, s.free_guests, s.created_at, s.need_help, s.request_bill FROM `TABLE` t LEFT JOIN `SESSION` s ON s.table_id = t.id AND s.completed_at IS NULL WHERE t.number BETWEEN 1 AND 9 ORDER BY t.number');
     while ($table = $statement->fetch(PDO::FETCH_ASSOC)) { render_table_card($table); }
     exit;
 }

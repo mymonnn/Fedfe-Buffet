@@ -4,3 +4,6 @@
 /tests/
 /images/menu/.gitkeep
 /images/menu/.upload.lock
+/test.php
+/database/add-free-guests.sql
+/database/remove-menu-image-path.sql

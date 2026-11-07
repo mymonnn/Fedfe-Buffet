@@ -158,7 +158,9 @@ function bill_details(PDO $pdo, int $visitId): array {
     $statement = $pdo->prepare("SELECT COUNT(*) FROM `ORDER` WHERE session_id = ? AND status = 'PREPARING'");
     $statement->execute([$visitId]);
     $buffet = (int) $visit['people_amount'] * decimal_cents($visit['buffet_price']);
-    return ['visit' => $visit, 'lines' => $lines, 'pending' => (int) $statement->fetchColumn(), 'buffet_cents' => $buffet, 'extras_cents' => $extras, 'total_cents' => $buffet + $extras];
+    $discount = (int) $visit['free_guests'] * decimal_cents($visit['buffet_price']);
+    $total = $buffet + $extras - $discount;
+    return ['visit' => $visit, 'lines' => $lines, 'pending' => (int) $statement->fetchColumn(), 'buffet_cents' => $buffet, 'discount_cents' => $discount, 'extras_cents' => $extras, 'total_cents' => $total];
 }
 
 function status_label(string $status): string {
@@ -197,7 +199,7 @@ function cart_rows(PDO $pdo, int $visitId): array {
 
 function table_row(PDO $pdo, int $tableNumber): array|false {
     if ($tableNumber < 1 || $tableNumber > 9) { return false; }
-    $statement = $pdo->prepare('SELECT t.number AS table_number, t.is_available AS table_open, s.id AS visit_id, s.session_number, s.people_amount, s.created_at, s.need_help, s.request_bill FROM `TABLE` t LEFT JOIN `SESSION` s ON s.table_id = t.id AND s.completed_at IS NULL WHERE t.number = ?');
+    $statement = $pdo->prepare('SELECT t.number AS table_number, t.is_available AS table_open, s.id AS visit_id, s.session_number, s.people_amount, s.free_guests, s.created_at, s.need_help, s.request_bill FROM `TABLE` t LEFT JOIN `SESSION` s ON s.table_id = t.id AND s.completed_at IS NULL WHERE t.number = ?');
     $statement->execute([$tableNumber]);
     return $statement->fetch(PDO::FETCH_ASSOC);
 }
